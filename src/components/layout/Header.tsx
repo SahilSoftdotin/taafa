@@ -49,10 +49,10 @@ export default function Header() {
             <Image
               src="/brand/taaf-logo.png"
               alt={`${company.name} logo`}
-              width={150}
-              height={43}
+              width={200}
+              height={57}
               priority
-              className="h-9 w-auto"
+              className="h-11 w-auto sm:h-12"
             />
           </Link>
 

@@ -33,9 +33,9 @@ export default function Footer() {
             <Image
               src="/brand/taaf-logo.png"
               alt={`${company.name} logo`}
-              width={160}
-              height={46}
-              className="h-10 w-auto"
+              width={200}
+              height={57}
+              className="h-12 w-auto"
             />
             <p className="max-w-xs text-sm leading-relaxed text-mist-400">
               {company.promise}

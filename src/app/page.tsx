@@ -1,9 +1,11 @@
 import { Hero } from "@/features/home/Hero";
 import { TrustBar } from "@/features/home/TrustBar";
+import { PartnersMarquee } from "@/features/home/PartnersMarquee";
 import { ServicesEcosystem } from "@/features/home/ServicesEcosystem";
 import { CommandCenter } from "@/features/home/CommandCenter";
 import { WhyTaaf } from "@/features/home/WhyTaaf";
 import { SuccessJourney } from "@/features/home/SuccessJourney";
+import { TeamShowcase } from "@/features/home/TeamShowcase";
 import { Locations } from "@/features/home/Locations";
 import { Reviews } from "@/features/home/Reviews";
 import { InsightsHub } from "@/features/home/InsightsHub";
@@ -14,10 +16,12 @@ export default function Home() {
     <>
       <Hero />
       <TrustBar />
+      <PartnersMarquee />
       <ServicesEcosystem />
       <CommandCenter />
       <WhyTaaf />
       <SuccessJourney />
+      <TeamShowcase />
       <Locations />
       <Reviews />
       <InsightsHub />

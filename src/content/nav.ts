@@ -2,8 +2,7 @@ import type { NavItem } from "@/types";
 
 export const navItems: NavItem[] = [
   { label: "Services", href: "/services" },
-  { label: "Command Center", href: "/#command-center" },
-  { label: "Why TAAF", href: "/#why-taaf" },
+  { label: "Team", href: "/team" },
   { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -34,6 +33,7 @@ export const footerNav: { heading: string; items: NavItem[] }[] = [
     heading: "Company",
     items: [
       { label: "About", href: "/about" },
+      { label: "Meet the Team", href: "/team" },
       { label: "Insights", href: "/insights" },
       { label: "All Services", href: "/services" },
       { label: "Book a Session", href: "/contact" },
