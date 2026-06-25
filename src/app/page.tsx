@@ -2,6 +2,7 @@ import { Hero } from "@/features/home/Hero";
 import { TrustBar } from "@/features/home/TrustBar";
 import { PartnersMarquee } from "@/features/home/PartnersMarquee";
 import { ServicesEcosystem } from "@/features/home/ServicesEcosystem";
+import { VideoShowcase } from "@/features/home/VideoShowcase";
 import { CommandCenter } from "@/features/home/CommandCenter";
 import { WhyTaaf } from "@/features/home/WhyTaaf";
 import { SuccessJourney } from "@/features/home/SuccessJourney";
@@ -18,6 +19,7 @@ export default function Home() {
       <TrustBar />
       <PartnersMarquee />
       <ServicesEcosystem />
+      <VideoShowcase />
       <CommandCenter />
       <WhyTaaf />
       <SuccessJourney />
