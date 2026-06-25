@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { Container } from "@/components/ui/Aurora";
 import { InteractiveBackground } from "@/components/ui/InteractiveBackground";
-import { img } from "@/content/images";
+import { img, heroVideo } from "@/content/images";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { company, trustMarks } from "@/content/company";
@@ -31,13 +31,35 @@ const word: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden pb-16 pt-32 md:pt-36">
-      {/* cursor-reactive vibrant background */}
-      <InteractiveBackground className="absolute inset-0" />
-      {/* readability vignette */}
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#060a18] pb-16 pt-32 md:pt-36">
+      {/* cinematic background video */}
+      <video
+        className="absolute inset-0 size-full scale-105 object-cover object-center opacity-90"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+
+      {/* contrast overlay */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,transparent_45%,var(--color-ink-950)_100%)]"
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(105deg, rgba(6,10,24,0.94) 0%, rgba(6,10,24,0.78) 45%, rgba(8,14,38,0.55) 100%)",
+        }}
+      />
+      {/* cursor-reactive colour glow over the video */}
+      <InteractiveBackground className="absolute inset-0 opacity-70 mix-blend-screen" />
+      {/* bottom fade into the light page */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-ink-950"
       />
 
       <Container className="relative">
@@ -48,7 +70,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease }}
-              className="inline-flex items-center gap-2 rounded-full border border-ink-700 bg-ink-900/70 px-4 py-1.5 text-xs font-medium tracking-tight text-mist-300 backdrop-blur"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-tight text-white backdrop-blur"
             >
               <Icon name="ShieldCheck" className="size-3.5 text-champagne" />
               {company.accreditation} · Since {company.established}
@@ -59,7 +81,7 @@ export function Hero() {
               variants={wordWrap}
               initial="hidden"
               animate="show"
-              className="text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-mist-50 sm:text-6xl md:text-7xl lg:text-[5.2rem]"
+              className="text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.2rem]"
             >
               <span className="block">
                 {line1.map((w) => (
@@ -89,7 +111,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.7 }}
-              className="max-w-xl text-lg leading-relaxed text-mist-400 md:text-xl"
+              className="max-w-xl text-lg leading-relaxed text-white/75 md:text-xl"
             >
               Helping individuals, families and businesses across the Central
               Coast create, protect and grow wealth — through transparent
@@ -105,7 +127,11 @@ export function Hero() {
               <Button href="/contact" icon="ArrowRight">
                 Book a Strategy Session
               </Button>
-              <Button href="/services" variant="outline">
+              <Button
+                href="/services"
+                variant="outline"
+                className="border-white/30 text-white hover:border-white/50 hover:bg-white/10"
+              >
                 Explore Services
               </Button>
             </motion.div>
@@ -119,7 +145,7 @@ export function Hero() {
               {trustMarks.map((mark) => (
                 <li
                   key={mark.label}
-                  className="inline-flex items-center gap-2 text-sm text-mist-400"
+                  className="inline-flex items-center gap-2 text-sm text-white/80"
                 >
                   <Icon name="CheckCircle2" className="size-4 text-aurora-teal" />
                   {mark.label}
@@ -135,12 +161,11 @@ export function Hero() {
             transition={{ duration: 1, ease, delay: 0.4 }}
             className="relative [perspective:1600px]"
           >
-            {/* Real photo for warmth + depth, dashboard floats over it */}
             <motion.div
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease, delay: 0.3 }}
-              className="absolute -right-2 -top-10 hidden w-[78%] overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-30px_rgba(30,41,99,0.45)] ring-1 ring-ink-700 sm:block"
+              className="absolute -right-2 -top-10 hidden w-[78%] overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)] ring-1 ring-white/15 sm:block"
             >
               <div className="relative aspect-[4/3]">
                 <Image
@@ -165,10 +190,10 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3 }}
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-mist-500 md:flex"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/60 md:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-        <span className="relative h-9 w-5 rounded-full border border-ink-600">
+        <span className="relative h-9 w-5 rounded-full border border-white/30">
           <motion.span
             animate={{ y: [4, 14, 4] }}
             transition={{ duration: 1.8, repeat: Infinity, ease }}

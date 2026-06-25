@@ -10,7 +10,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
 import { getService, services } from "@/content/services";
 import { company } from "@/content/company";
-import { serviceCategoryImage } from "@/content/images";
+import { serviceImage } from "@/content/images";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -69,8 +69,8 @@ export default async function ServiceDetail({
       <Container className="pb-24">
         <div className="relative mb-10 aspect-[21/8] overflow-hidden rounded-[2rem] ring-1 ring-ink-700">
           <Image
-            src={serviceCategoryImage[service.category]}
-            alt={`${service.category} at TAAF`}
+            src={serviceImage(service.slug)}
+            alt={`${service.title} at TAAF`}
             fill
             priority
             sizes="(max-width: 1280px) 100vw, 1200px"

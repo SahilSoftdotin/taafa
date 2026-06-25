@@ -20,6 +20,14 @@ export const img = {
   handshake: "/images/handshake.jpg",
 } as const;
 
+/** Unique background image per service (one file per slug, no duplicates). */
+export function serviceImage(slug: string): string {
+  return `/images/services/${slug}.jpg`;
+}
+
+/** Cinematic hero background video (Pexels, free license). */
+export const heroVideo = "/video/hero.mp4";
+
 export const serviceCategoryImage: Record<ServiceCategory, string> = {
   Taxation: img.calculator,
   Accounting: img.laptop,
