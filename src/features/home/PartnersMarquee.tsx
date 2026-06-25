@@ -1,27 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { Container } from "@/components/ui/Aurora";
 import { Eyebrow } from "@/components/ui/SectionHeading";
-import { Icon } from "@/components/ui/Icon";
 import { platforms, banks, type Partner } from "@/content/partners";
 
 function LogoChip({ p }: { p: Partner }) {
   return (
-    <div className="mx-3 flex shrink-0 items-center gap-2.5 rounded-2xl border border-ink-700 bg-ink-900/70 px-6 py-3.5 backdrop-blur">
-      <span className="grid size-7 place-items-center rounded-lg bg-gradient-to-br from-aurora-indigo/15 to-aurora-violet/10">
-        <Icon
-          name={p.verified ? "ShieldCheck" : "Landmark"}
-          className="size-4 text-aurora-indigo"
-        />
-      </span>
-      <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-mist-200">
-        {p.name}
-      </span>
-      {p.verified && (
-        <span className="rounded-full bg-aurora-teal/15 px-2 py-0.5 text-[10px] font-medium text-aurora-teal">
-          Partner
-        </span>
-      )}
+    <div className="mx-3 flex h-16 shrink-0 items-center justify-center rounded-2xl border border-ink-700 bg-ink-900/80 px-8 backdrop-blur">
+      <Image
+        src={p.logo}
+        alt={p.name}
+        width={150}
+        height={32}
+        className="h-7 w-auto opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+      />
     </div>
   );
 }

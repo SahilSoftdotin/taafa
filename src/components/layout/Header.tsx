@@ -9,6 +9,7 @@ import { company } from "@/content/company";
 import { cn } from "@/lib/utils";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
+import { NavMenu } from "@/components/layout/NavMenu";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,18 +57,8 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-3.5 py-2 text-sm text-mist-300 transition-colors hover:text-mist-50"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Desktop nav (mega-menu) */}
+          <NavMenu />
 
           <div className="flex items-center gap-2">
             <a

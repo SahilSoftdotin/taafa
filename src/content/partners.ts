@@ -1,33 +1,33 @@
 export interface Partner {
   name: string;
+  logo: string;
   /** Verified relationship vs illustrative placeholder */
   verified: boolean;
 }
 
 /**
- * "Works with" wall. Only Xero is a verified relationship (Platinum Champion
- * Partner). Banks/platforms below are ILLUSTRATIVE placeholders for the concept
- * — confirm partnerships and obtain trademark/logo usage rights before launch.
+ * "Works with" logo wall. Only Xero is a verified relationship (Platinum
+ * Champion Partner). Other marks are ILLUSTRATIVE for the concept — confirm
+ * partnerships and obtain trademark/logo usage rights before launch.
+ * (Xero/MYOB use official marks; the rest are styled wordmark placeholders.)
  */
 
-// Accounting / finance platforms TAAF works with
 export const platforms: Partner[] = [
-  { name: "Xero", verified: true },
-  { name: "MYOB", verified: false },
-  { name: "QuickBooks", verified: false },
-  { name: "ATO", verified: false },
-  { name: "CA ANZ", verified: false },
-  { name: "CPA Australia", verified: false },
+  { name: "Xero", logo: "/images/logos/xero.svg", verified: true },
+  { name: "MYOB", logo: "/images/logos/myob.svg", verified: false },
+  { name: "QuickBooks", logo: "/images/logos/quickbooks.svg", verified: false },
+  { name: "ATO", logo: "/images/logos/ato.svg", verified: false },
+  { name: "CA ANZ", logo: "/images/logos/caanz.svg", verified: false },
+  { name: "CPA Australia", logo: "/images/logos/cpa.svg", verified: false },
 ];
 
-// Australian banks clients commonly connect via bank feeds
 export const banks: Partner[] = [
-  { name: "CommBank", verified: false },
-  { name: "NAB", verified: false },
-  { name: "Westpac", verified: false },
-  { name: "ANZ", verified: false },
-  { name: "Macquarie", verified: false },
-  { name: "Bendigo Bank", verified: false },
-  { name: "St.George", verified: false },
-  { name: "ING", verified: false },
+  { name: "CommBank", logo: "/images/logos/commbank.svg", verified: false },
+  { name: "NAB", logo: "/images/logos/nab.svg", verified: false },
+  { name: "Westpac", logo: "/images/logos/westpac.svg", verified: false },
+  { name: "ANZ", logo: "/images/logos/anz.svg", verified: false },
+  { name: "Macquarie", logo: "/images/logos/macquarie.svg", verified: false },
+  { name: "Bendigo Bank", logo: "/images/logos/bendigo.svg", verified: false },
+  { name: "St.George", logo: "/images/logos/stgeorge.svg", verified: false },
+  { name: "ING", logo: "/images/logos/ing.svg", verified: false },
 ];

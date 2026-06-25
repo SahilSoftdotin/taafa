@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/ui/Aurora";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { getServiceGroups } from "@/content/services";
+import { ServiceCard } from "@/components/ui/ServiceCard";
+import { getDivisionGroups } from "@/content/services";
 
 export const metadata: Metadata = {
-  title: "Services — Accounting, Tax, SMSF & Financial Advice",
+  title: "Services — Accounting Services & Financial Advice",
   description:
-    "Explore TAAF's full range of accounting, taxation, SMSF, financial planning, insurance, estate planning and business advisory services on the Central Coast.",
+    "Explore TAAF's Accounting Services (tax, business accounting, BAS, payroll, bookkeeping, trusts) and Financial Advice (SMSF, super, planning, insurance, estate, property) on the Central Coast.",
 };
 
 export default function ServicesPage() {
-  const groups = getServiceGroups();
+  const divisionGroups = getDivisionGroups();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function ServicesPage() {
             <span className="text-gradient">in one place</span>
           </>
         }
-        intro="Accounting, tax, wealth, protection and advice — designed to work together. Browse by area below."
+        intro="Two sides of the same partner: Accounting Services to keep you compliant and clear, and Financial Advice to help you grow and protect wealth."
       >
         <Button href="/contact" icon="ArrowRight">
           Book a strategy session
@@ -34,53 +34,44 @@ export default function ServicesPage() {
       </PageHero>
 
       <Container className="pb-24">
-        <div className="flex flex-col gap-16">
-          {groups.map((group) => (
-            <div key={group.category}>
+        <div className="flex flex-col gap-20">
+          {divisionGroups.map((div) => (
+            <div key={div.division}>
               <Reveal>
-                <div className="mb-6 flex items-center gap-4">
-                  <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-aurora-indigo/30 to-aurora-violet/20 text-aurora-cyan">
-                    <Icon name={group.icon} className="size-6" />
+                <div className="mb-8 flex items-center gap-4 border-b border-ink-700 pb-6">
+                  <span className="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-aurora-indigo to-aurora-violet text-white">
+                    <Icon name={div.icon} className="size-7" />
                   </span>
                   <div>
-                    <h2 className="text-2xl font-semibold text-mist-50">
-                      {group.category}
+                    <h2 className="text-2xl font-semibold text-mist-50 sm:text-3xl">
+                      {div.division}
                     </h2>
-                    <p className="text-sm text-mist-400">{group.blurb}</p>
+                    <p className="text-sm text-mist-400">{div.blurb}</p>
                   </div>
                 </div>
               </Reveal>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {group.services.map((s, i) => (
-                  <Reveal key={s.slug} delay={i}>
-                    <Link
-                      href={`/services/${s.slug}`}
-                      className="border-aurora group flex h-full flex-col gap-3 rounded-3xl glass p-6 transition-transform duration-500 hover:-translate-y-1"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="grid size-11 place-items-center rounded-2xl bg-ink-850 text-aurora-cyan">
-                          <Icon name={s.icon} className="size-5" />
+              <div className="flex flex-col gap-12">
+                {div.groups.map((group) => (
+                  <div key={group.category}>
+                    <Reveal>
+                      <div className="mb-5 flex items-center gap-3">
+                        <span className="grid size-9 place-items-center rounded-xl bg-ink-850 text-aurora-cyan">
+                          <Icon name={group.icon} className="size-5" />
                         </span>
-                        <Icon
-                          name="ArrowUpRight"
-                          className="size-5 text-mist-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-mist-50"
-                        />
+                        <h3 className="text-lg font-semibold text-mist-100">
+                          {group.category}
+                        </h3>
                       </div>
-                      <h3 className="text-lg font-semibold text-mist-50">
-                        {s.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-mist-400">
-                        {s.summary}
-                      </p>
-                      {!s.verified && (
-                        <span className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-champagne/10 px-2.5 py-1 text-[10px] text-champagne">
-                          <Icon name="Sparkles" className="size-3" />
-                          To confirm with client
-                        </span>
-                      )}
-                    </Link>
-                  </Reveal>
+                    </Reveal>
+                    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                      {group.services.map((s, i) => (
+                        <Reveal key={s.slug} delay={i}>
+                          <ServiceCard service={s} />
+                        </Reveal>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

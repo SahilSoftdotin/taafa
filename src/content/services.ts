@@ -441,3 +441,56 @@ export function getServiceGroups(): ServiceGroup[] {
 export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
+
+/* -------- Top-level divisions (matching the original taafa.com.au) -------- */
+
+export type Division = "Accounting Services" | "Financial Advice";
+
+export const divisions: Division[] = ["Accounting Services", "Financial Advice"];
+
+export const categoryDivision: Record<ServiceCategory, Division> = {
+  Taxation: "Accounting Services",
+  Accounting: "Accounting Services",
+  "SMSF & Super": "Financial Advice",
+  "Financial Planning": "Financial Advice",
+  Insurance: "Financial Advice",
+  "Estate Planning": "Financial Advice",
+  "Property & Lending": "Financial Advice",
+  "Business Advisory": "Financial Advice",
+};
+
+export const divisionMeta: Record<
+  Division,
+  { icon: string; blurb: string }
+> = {
+  "Accounting Services": {
+    icon: "Calculator",
+    blurb:
+      "Tax returns, business accounting, BAS, payroll, bookkeeping and trusts.",
+  },
+  "Financial Advice": {
+    icon: "Compass",
+    blurb:
+      "SMSF, superannuation, financial & estate planning, insurance and property.",
+  },
+};
+
+export function getServicesByDivision(d: Division): Service[] {
+  return services.filter((s) => categoryDivision[s.category] === d);
+}
+
+export function getDivisionGroups() {
+  return divisions.map((division) => ({
+    division,
+    icon: divisionMeta[division].icon,
+    blurb: divisionMeta[division].blurb,
+    groups: categoryOrder
+      .filter((c) => categoryDivision[c] === division)
+      .map((category) => ({
+        category,
+        icon: categoryMeta[category].icon,
+        blurb: categoryMeta[category].blurb,
+        services: services.filter((s) => s.category === category),
+      })),
+  }));
+}
