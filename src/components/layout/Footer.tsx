@@ -84,10 +84,23 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-ink-700 pt-6 text-xs text-mist-500 md:flex-row md:items-center">
-          <p>
-            © {new Date().getFullYear()} {company.name}. ABN {company.abn}. All
-            rights reserved.
-          </p>
+          <div className="flex flex-col gap-1">
+            <p>
+              © {new Date().getFullYear()} {company.name}. ABN {company.abn}. All
+              rights reserved.
+            </p>
+            <p className="text-mist-500/80">
+              Crafted by{" "}
+              <a
+                href="https://visiondigitallab.com/?ref=taafa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-mist-400 transition-colors hover:text-aurora-indigo"
+              >
+                Vision Digital Lab
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-5">
             <span className="inline-flex items-center gap-1.5 text-mist-400">
               <Icon name="ShieldCheck" className="size-3.5 text-champagne" />
