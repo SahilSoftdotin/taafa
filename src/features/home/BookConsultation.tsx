@@ -14,7 +14,7 @@ const perks = [
 
 export function BookConsultation() {
   return (
-    <section id="book" className="relative overflow-hidden py-24 md:py-32">
+    <section id="book" className="bg-mesh relative overflow-hidden py-24 md:py-32">
       <Aurora className="opacity-70" />
       <Container className="relative">
         <div className="glass-strong grid gap-10 rounded-[2.5rem] p-7 md:p-12 lg:grid-cols-[1fr_1.05fr]">
@@ -46,7 +46,7 @@ export function BookConsultation() {
               ))}
             </ul>
 
-            <div className="mt-2 flex flex-col gap-2 rounded-2xl bg-white/5 p-5">
+            <div className="mt-2 flex flex-col gap-2 rounded-2xl bg-ink-850 p-5">
               <p className="text-xs uppercase tracking-[0.16em] text-mist-500">
                 Prefer to call?
               </p>

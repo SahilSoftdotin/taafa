@@ -66,7 +66,7 @@ export function WhyTaaf() {
               key={p.title}
               className="glass relative flex h-[360px] w-[300px] shrink-0 flex-col justify-between rounded-3xl p-7 md:w-[380px]"
             >
-              <div className="absolute right-6 top-6 text-7xl font-bold text-white/[0.04]">
+              <div className="absolute right-6 top-6 text-7xl font-bold text-aurora-indigo/[0.07]">
                 0{i + 1}
               </div>
               <span className="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-aurora-indigo/30 to-aurora-violet/20 text-aurora-cyan">

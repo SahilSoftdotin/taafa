@@ -20,8 +20,8 @@ const variants: Record<Variant, string> = {
   primary:
     "text-white bg-gradient-to-r from-aurora-indigo to-aurora-violet shadow-[0_18px_40px_-16px_rgba(99,102,241,0.7)] hover:shadow-[0_22px_55px_-14px_rgba(139,92,246,0.85)] hover:-translate-y-0.5",
   outline:
-    "text-mist-100 border border-white/15 hover:border-white/30 hover:bg-white/5",
-  ghost: "text-mist-300 hover:text-white",
+    "text-mist-100 border border-ink-600 hover:border-ink-600 hover:bg-ink-850",
+  ghost: "text-mist-300 hover:text-mist-50",
 };
 
 export function Button({

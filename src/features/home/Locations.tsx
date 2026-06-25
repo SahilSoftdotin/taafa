@@ -39,15 +39,15 @@ export function Locations() {
                 onClick={() => setActive(i)}
                 className={`group flex items-start gap-4 rounded-3xl border p-5 text-left transition-all duration-300 ${
                   active === i
-                    ? "glass-strong border-white/15"
-                    : "border-white/8 hover:border-white/15 hover:bg-white/5"
+                    ? "glass-strong border-ink-600"
+                    : "border-ink-700 hover:border-ink-600 hover:bg-ink-850"
                 }`}
               >
                 <span
                   className={`mt-0.5 grid size-10 shrink-0 place-items-center rounded-xl ${
                     loc.verified
                       ? "bg-gradient-to-br from-aurora-indigo to-aurora-violet text-white"
-                      : "bg-white/5 text-mist-400"
+                      : "bg-ink-850 text-mist-400"
                   }`}
                 >
                   <Icon name="MapPin" className="size-5" />
@@ -121,7 +121,7 @@ export function Locations() {
                   className={`relative grid size-7 place-items-center rounded-full border-2 ${
                     loc.verified
                       ? "border-white/70 bg-aurora-indigo"
-                      : "border-white/30 bg-ink-700"
+                      : "border-ink-600 bg-ink-700"
                   } ${active === i ? "ring-4 ring-aurora-cyan/30" : ""}`}
                 >
                   <Icon name="MapPin" className="size-3.5 text-white" />

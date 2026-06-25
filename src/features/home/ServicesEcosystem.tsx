@@ -40,7 +40,7 @@ export function ServicesEcosystem() {
               className={`rounded-full border px-4 py-2 text-sm transition-all duration-300 ${
                 active === f
                   ? "border-transparent bg-gradient-to-r from-aurora-indigo to-aurora-violet text-white"
-                  : "border-white/10 text-mist-300 hover:border-white/25 hover:text-white"
+                  : "border-ink-700 text-mist-300 hover:border-ink-600 hover:text-mist-50"
               }`}
             >
               {f}
@@ -68,12 +68,12 @@ export function ServicesEcosystem() {
                   className="border-aurora group relative flex h-full flex-col gap-3 overflow-hidden rounded-3xl glass p-6 transition-transform duration-500 hover:-translate-y-1"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="grid size-12 place-items-center rounded-2xl bg-white/5 text-aurora-cyan transition-colors duration-300 group-hover:bg-aurora-indigo/20">
+                    <span className="grid size-12 place-items-center rounded-2xl bg-ink-850 text-aurora-cyan transition-colors duration-300 group-hover:bg-aurora-indigo/20">
                       <Icon name={s.icon} className="size-6" />
                     </span>
                     <Icon
                       name="ArrowUpRight"
-                      className="size-5 text-mist-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                      className="size-5 text-mist-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-mist-50"
                     />
                   </div>
                   <div className="mt-1">

@@ -34,7 +34,7 @@ export default function ContactPage() {
             <GlassCard strong className="flex flex-col gap-4 p-7">
               <a
                 href={company.phoneHref}
-                className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 transition-colors hover:bg-white/10"
+                className="flex items-center gap-4 rounded-2xl bg-ink-850 p-4 transition-colors hover:bg-ink-800"
               >
                 <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-aurora-indigo to-aurora-violet text-white">
                   <Icon name="Phone" className="size-5" />
@@ -50,9 +50,9 @@ export default function ContactPage() {
               </a>
               <a
                 href={`mailto:${company.email}`}
-                className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 transition-colors hover:bg-white/10"
+                className="flex items-center gap-4 rounded-2xl bg-ink-850 p-4 transition-colors hover:bg-ink-800"
               >
-                <span className="grid size-11 place-items-center rounded-xl bg-white/5 text-aurora-cyan">
+                <span className="grid size-11 place-items-center rounded-xl bg-ink-850 text-aurora-cyan">
                   <Icon name="Mail" className="size-5" />
                 </span>
                 <div>
@@ -64,8 +64,8 @@ export default function ContactPage() {
                   </p>
                 </div>
               </a>
-              <div className="flex items-center gap-4 rounded-2xl bg-white/5 p-4">
-                <span className="grid size-11 place-items-center rounded-xl bg-white/5 text-aurora-cyan">
+              <div className="flex items-center gap-4 rounded-2xl bg-ink-850 p-4">
+                <span className="grid size-11 place-items-center rounded-xl bg-ink-850 text-aurora-cyan">
                   <Icon name="MapPin" className="size-5" />
                 </span>
                 <div>
@@ -77,8 +77,8 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 rounded-2xl bg-white/5 p-4">
-                <span className="grid size-11 place-items-center rounded-xl bg-white/5 text-aurora-cyan">
+              <div className="flex items-center gap-4 rounded-2xl bg-ink-850 p-4">
+                <span className="grid size-11 place-items-center rounded-xl bg-ink-850 text-aurora-cyan">
                   <Icon name="Clock" className="size-5" />
                 </span>
                 <div>

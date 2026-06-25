@@ -91,7 +91,7 @@ export function ConsultationForm() {
                       "rounded-full border px-3.5 py-1.5 text-sm transition-all",
                       interest === s
                         ? "border-transparent bg-gradient-to-r from-aurora-indigo to-aurora-violet text-white"
-                        : "border-white/10 text-mist-300 hover:border-white/25"
+                        : "border-ink-700 text-mist-300 hover:border-ink-600"
                     )}
                   >
                     {s}
@@ -112,7 +112,7 @@ export function ConsultationForm() {
                 name="message"
                 rows={3}
                 placeholder="A quick note about your situation…"
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-mist-100 outline-none transition-colors placeholder:text-mist-500 focus:border-aurora-indigo/60"
+                className="rounded-2xl border border-ink-700 bg-ink-850 px-4 py-3 text-sm text-mist-100 outline-none transition-colors placeholder:text-mist-500 focus:border-aurora-indigo/60"
               />
             </div>
 
@@ -158,7 +158,7 @@ function Field({
         type={type}
         required
         placeholder={placeholder}
-        className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-mist-100 outline-none transition-colors placeholder:text-mist-500 focus:border-aurora-indigo/60"
+        className="rounded-2xl border border-ink-700 bg-ink-850 px-4 py-3 text-sm text-mist-100 outline-none transition-colors placeholder:text-mist-500 focus:border-aurora-indigo/60"
       />
     </div>
   );

@@ -59,12 +59,12 @@ export default function ServicesPage() {
                       className="border-aurora group flex h-full flex-col gap-3 rounded-3xl glass p-6 transition-transform duration-500 hover:-translate-y-1"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="grid size-11 place-items-center rounded-2xl bg-white/5 text-aurora-cyan">
+                        <span className="grid size-11 place-items-center rounded-2xl bg-ink-850 text-aurora-cyan">
                           <Icon name={s.icon} className="size-5" />
                         </span>
                         <Icon
                           name="ArrowUpRight"
-                          className="size-5 text-mist-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                          className="size-5 text-mist-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-mist-50"
                         />
                       </div>
                       <h3 className="text-lg font-semibold text-mist-50">

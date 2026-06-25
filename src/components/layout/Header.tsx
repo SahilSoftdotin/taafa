@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { navItems } from "@/content/nav";
@@ -44,18 +45,15 @@ export default function Header() {
           )}
         >
           {/* Brand */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-aurora-indigo to-aurora-violet text-sm font-bold text-white shadow-[0_8px_24px_-8px_rgba(99,102,241,0.8)]">
-              T
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="text-sm font-semibold tracking-tight text-mist-50">
-                {company.shortName}
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.22em] text-mist-500">
-                Accountants &amp; Advisors
-              </span>
-            </span>
+          <Link href="/" className="flex items-center gap-2.5" aria-label={company.name}>
+            <Image
+              src="/brand/taaf-logo.png"
+              alt={`${company.name} logo`}
+              width={150}
+              height={43}
+              priority
+              className="h-9 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -64,7 +62,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-sm text-mist-300 transition-colors hover:text-white"
+                className="rounded-full px-3.5 py-2 text-sm text-mist-300 transition-colors hover:text-mist-50"
               >
                 {item.label}
               </Link>
@@ -74,7 +72,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <a
               href={company.phoneHref}
-              className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-mist-300 transition-colors hover:text-white md:inline-flex"
+              className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm text-mist-300 transition-colors hover:text-mist-50 md:inline-flex"
             >
               <Icon name="Phone" className="size-4 text-aurora-cyan" />
               {company.phone}
@@ -95,7 +93,7 @@ export default function Header() {
               onClick={() => setOpen((v) => !v)}
               className="grid size-10 place-items-center rounded-full glass lg:hidden"
             >
-              <Icon name={open ? "X" : "Menu"} className="size-5 text-white" />
+              <Icon name={open ? "X" : "Menu"} className="size-5 text-mist-50" />
             </button>
           </div>
         </div>
@@ -117,7 +115,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-base text-mist-200 transition-colors hover:bg-white/5 hover:text-white"
+                  className="rounded-2xl px-4 py-3 text-base text-mist-200 transition-colors hover:bg-ink-850 hover:text-mist-50"
                 >
                   {item.label}
                 </Link>

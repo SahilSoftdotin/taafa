@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Aurora";
 import { PageHero } from "@/components/ui/PageHero";
+import { img } from "@/content/images";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -55,6 +57,18 @@ export default function AboutPage() {
       </PageHero>
 
       <Container className="pb-8">
+        {/* Feature image */}
+        <div className="relative mb-10 aspect-[21/9] overflow-hidden rounded-[2rem] ring-1 ring-ink-700">
+          <Image
+            src={img.team}
+            alt="The TAAF team collaborating"
+            fill
+            sizes="(max-width: 1280px) 100vw, 1200px"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-aurora-indigo/25 via-transparent to-aurora-cyan/15" />
+        </div>
+
         {/* Story */}
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <Reveal>
@@ -101,7 +115,7 @@ export default function AboutPage() {
                 { icon: "Mail", label: "Email", value: company.email },
               ].map((row) => (
                 <div key={row.label} className="flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-xl bg-white/5 text-aurora-cyan">
+                  <span className="grid size-10 place-items-center rounded-xl bg-ink-850 text-aurora-cyan">
                     <Icon name={row.icon} className="size-5" />
                   </span>
                   <div>

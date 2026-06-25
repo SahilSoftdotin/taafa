@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Aurora";
 import { PageHero } from "@/components/ui/PageHero";
@@ -9,6 +10,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
 import { getService, services } from "@/content/services";
 import { company } from "@/content/company";
+import { serviceCategoryImage } from "@/content/images";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -65,6 +67,18 @@ export default async function ServiceDetail({
       </PageHero>
 
       <Container className="pb-24">
+        <div className="relative mb-10 aspect-[21/8] overflow-hidden rounded-[2rem] ring-1 ring-ink-700">
+          <Image
+            src={serviceCategoryImage[service.category]}
+            alt={`${service.category} at TAAF`}
+            fill
+            priority
+            sizes="(max-width: 1280px) 100vw, 1200px"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-aurora-indigo/30 via-transparent to-aurora-cyan/15" />
+        </div>
+
         <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr]">
           {/* Main */}
           <div className="flex flex-col gap-8">
@@ -86,7 +100,7 @@ export default async function ServiceDetail({
                   {service.inclusions.map((inc) => (
                     <li
                       key={inc}
-                      className="flex items-start gap-3 rounded-2xl bg-white/5 p-4"
+                      className="flex items-start gap-3 rounded-2xl bg-ink-850 p-4"
                     >
                       <Icon
                         name="CheckCircle2"
@@ -139,7 +153,7 @@ export default async function ServiceDetail({
               <div className="mt-5 flex flex-col gap-3">
                 <a
                   href={company.phoneHref}
-                  className="flex items-center gap-3 rounded-2xl bg-white/5 p-4 transition-colors hover:bg-white/10"
+                  className="flex items-center gap-3 rounded-2xl bg-ink-850 p-4 transition-colors hover:bg-ink-800"
                 >
                   <Icon name="Phone" className="size-5 text-aurora-cyan" />
                   <div>
@@ -151,7 +165,7 @@ export default async function ServiceDetail({
                 </a>
                 <a
                   href={`mailto:${company.email}`}
-                  className="flex items-center gap-3 rounded-2xl bg-white/5 p-4 transition-colors hover:bg-white/10"
+                  className="flex items-center gap-3 rounded-2xl bg-ink-850 p-4 transition-colors hover:bg-ink-800"
                 >
                   <Icon name="Mail" className="size-5 text-aurora-cyan" />
                   <span className="text-sm text-mist-50">{company.email}</span>

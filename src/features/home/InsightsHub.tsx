@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Aurora";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { insights } from "@/content/insights";
+import { insightCategoryImage, img } from "@/content/images";
 
 function formatDate(d: string) {
   return new Date(d).toLocaleDateString("en-AU", {
@@ -43,17 +45,18 @@ export function InsightsHub() {
                 href="/insights"
                 className="border-aurora group flex h-full flex-col overflow-hidden rounded-3xl glass transition-transform duration-500 hover:-translate-y-1"
               >
-                {/* gradient header strip as image stand-in */}
-                <div className="relative h-40 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-aurora-indigo/40 via-ink-800 to-aurora-violet/30" />
-                  <div className="bg-grid absolute inset-0 opacity-40" />
-                  <span className="absolute left-4 top-4 rounded-full bg-ink-950/60 px-3 py-1 text-[11px] font-medium text-mist-200 backdrop-blur">
+                <div className="relative h-44 overflow-hidden">
+                  <Image
+                    src={insightCategoryImage[post.category] ?? img.planning}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-950/30 to-transparent" />
+                  <span className="absolute left-4 top-4 rounded-full bg-ink-900/80 px-3 py-1 text-[11px] font-medium text-mist-100 backdrop-blur">
                     {post.category}
                   </span>
-                  <Icon
-                    name="FileText"
-                    className="absolute bottom-4 right-4 size-8 text-white/20"
-                  />
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-6">
                   <h3 className="text-lg font-semibold leading-snug text-mist-50">

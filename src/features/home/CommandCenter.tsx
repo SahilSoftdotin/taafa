@@ -153,15 +153,15 @@ export function CommandCenter() {
                   onClick={() => setActive(m)}
                   className={`group flex shrink-0 items-center gap-3 rounded-2xl border px-4 py-3.5 text-left transition-all duration-300 lg:w-full ${
                     isActive
-                      ? "glass-strong border-white/15"
-                      : "border-white/8 hover:border-white/15 hover:bg-white/5"
+                      ? "glass-strong border-ink-600"
+                      : "border-ink-700 hover:border-ink-600 hover:bg-ink-850"
                   }`}
                 >
                   <span
                     className={`grid size-10 shrink-0 place-items-center rounded-xl transition-colors ${
                       isActive
                         ? "bg-gradient-to-br from-aurora-indigo to-aurora-violet text-white"
-                        : "bg-white/5 text-aurora-cyan"
+                        : "bg-ink-850 text-aurora-cyan"
                     }`}
                   >
                     <Icon name={m.icon} className="size-5" />
@@ -220,7 +220,7 @@ export function CommandCenter() {
                     {active.kpis.map((k) => (
                       <div
                         key={k.label}
-                        className="rounded-2xl bg-white/5 p-3"
+                        className="rounded-2xl bg-ink-850 p-3"
                       >
                         <p className="text-base font-semibold text-mist-50">
                           {k.value}
@@ -234,7 +234,7 @@ export function CommandCenter() {
                 </div>
 
                 {/* gauge */}
-                <div className="flex flex-col items-center justify-center gap-4 rounded-3xl bg-white/[0.03] p-6">
+                <div className="flex flex-col items-center justify-center gap-4 rounded-3xl bg-ink-850 p-6">
                   <Gauge value={active.gauge} />
                   <p className="text-center text-sm text-mist-400">
                     {active.gaugeLabel}

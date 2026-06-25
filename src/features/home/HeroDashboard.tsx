@@ -34,7 +34,7 @@ export function HeroDashboard() {
               </span>
             </p>
           </div>
-          <span className="grid size-9 place-items-center rounded-xl bg-white/5">
+          <span className="grid size-9 place-items-center rounded-xl bg-ink-850">
             <Icon name="TrendingUp" className="size-5 text-aurora-cyan" />
           </span>
         </div>
@@ -58,7 +58,7 @@ export function HeroDashboard() {
             { label: "Tax saved", value: "$24,180", icon: "Receipt" },
             { label: "Super growth", value: "+8.9%", icon: "PiggyBank" },
           ].map((m) => (
-            <div key={m.label} className="rounded-2xl bg-white/5 p-3">
+            <div key={m.label} className="rounded-2xl bg-ink-850 p-3">
               <div className="flex items-center gap-2 text-mist-500">
                 <Icon name={m.icon} className="size-3.5 text-aurora-teal" />
                 <span className="text-[11px]">{m.label}</span>

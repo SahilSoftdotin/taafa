@@ -5,7 +5,7 @@ import { stats } from "@/content/company";
 
 export function TrustBar() {
   return (
-    <section className="relative border-y border-white/8 bg-ink-900/40 py-14">
+    <section className="relative border-y border-ink-700 bg-ink-900/40 py-14">
       <Container>
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, i) => (

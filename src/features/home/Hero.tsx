@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { Aurora, Container } from "@/components/ui/Aurora";
+import { img } from "@/content/images";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { company, trustMarks } from "@/content/company";
@@ -27,7 +29,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-tight text-mist-300 backdrop-blur"
+              className="inline-flex items-center gap-2 rounded-full border border-ink-700 bg-ink-850 px-4 py-1.5 text-xs font-medium tracking-tight text-mist-300 backdrop-blur"
             >
               <Icon name="ShieldCheck" className="size-3.5 text-champagne" />
               {company.accreditation} · Since {company.established}
@@ -97,6 +99,26 @@ export function Hero() {
             transition={{ duration: 1, ease, delay: 0.3 }}
             className="relative [perspective:1600px]"
           >
+            {/* Real photo for warmth + depth, dashboard floats over it */}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease, delay: 0.2 }}
+              className="absolute -right-2 -top-10 hidden w-[78%] overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-30px_rgba(30,41,99,0.45)] ring-1 ring-ink-700 sm:block"
+            >
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={img.hero}
+                  alt="TAAF advisors meeting with clients"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 60vw, 30vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-aurora-indigo/30 via-transparent to-aurora-cyan/10" />
+              </div>
+            </motion.div>
+
             <HeroDashboard />
           </motion.div>
         </div>
@@ -110,7 +132,7 @@ export function Hero() {
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-mist-500 md:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-        <span className="relative h-9 w-5 rounded-full border border-white/15">
+        <span className="relative h-9 w-5 rounded-full border border-ink-600">
           <motion.span
             animate={{ y: [4, 14, 4] }}
             transition={{ duration: 1.8, repeat: Infinity, ease }}
