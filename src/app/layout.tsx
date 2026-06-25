@@ -61,7 +61,6 @@ export default function RootLayout({
   return (
     <html
       lang="en-AU"
-      data-scroll-behavior="smooth"
       className={`${inter.variable} ${sora.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="bg-grid min-h-full">

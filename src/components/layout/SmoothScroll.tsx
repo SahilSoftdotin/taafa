@@ -4,7 +4,11 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 
 /**
- * Lenis smooth scrolling. Respects prefers-reduced-motion by skipping init.
+ * Production-grade smooth scrolling with Lenis.
+ * - lerp-based interpolation for a continuous "buttery" feel
+ * - native momentum on touch (smoother than emulating it)
+ * - single rAF loop; cleaned up on unmount
+ * - skips entirely under prefers-reduced-motion
  */
 export default function SmoothScroll() {
   useEffect(() => {
@@ -16,9 +20,12 @@ export default function SmoothScroll() {
     }
 
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.09, // lower = smoother/heavier glide
+      wheelMultiplier: 1,
       smoothWheel: true,
+      syncTouch: false, // use native momentum on touch devices
+      touchMultiplier: 1.5,
+      overscroll: false,
     });
 
     let raf = 0;
@@ -28,7 +35,7 @@ export default function SmoothScroll() {
     }
     raf = requestAnimationFrame(loop);
 
-    // Anchor links → smooth scroll via Lenis
+    // Smoothly scroll to in-page anchors, accounting for the fixed header.
     function onClick(e: MouseEvent) {
       const target = (e.target as HTMLElement)?.closest(
         'a[href^="/#"], a[href^="#"]'
@@ -38,7 +45,7 @@ export default function SmoothScroll() {
       const el = hash ? document.getElementById(hash) : null;
       if (el) {
         e.preventDefault();
-        lenis.scrollTo(el, { offset: -90 });
+        lenis.scrollTo(el, { offset: -96, duration: 1.1 });
       }
     }
     document.addEventListener("click", onClick);
