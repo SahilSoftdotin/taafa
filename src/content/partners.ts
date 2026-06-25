@@ -6,28 +6,31 @@ export interface Partner {
 }
 
 /**
- * "Works with" logo wall. Only Xero is a verified relationship (Platinum
- * Champion Partner). Other marks are ILLUSTRATIVE for the concept — confirm
- * partnerships and obtain trademark/logo usage rights before launch.
- * (Xero/MYOB use official marks; the rest are styled wordmark placeholders.)
+ * "Works with" logo wall using real brand marks.
+ * - Platforms: official Simple Icons SVGs.
+ * - Banks: each institution's own brand icon (apple-touch-icon / favicon).
+ * Only Xero is a verified partnership (Platinum Champion Partner). Other marks
+ * are shown to indicate integrations — confirm trademark/logo usage before launch.
  */
 
 export const platforms: Partner[] = [
-  { name: "Xero", logo: "/images/logos/xero.svg", verified: true },
-  { name: "MYOB", logo: "/images/logos/myob.svg", verified: false },
-  { name: "QuickBooks", logo: "/images/logos/quickbooks.svg", verified: false },
-  { name: "ATO", logo: "/images/logos/ato.svg", verified: false },
-  { name: "CA ANZ", logo: "/images/logos/caanz.svg", verified: false },
-  { name: "CPA Australia", logo: "/images/logos/cpa.svg", verified: false },
+  { name: "Xero", logo: "/images/logos/real/xero.svg", verified: true },
+  { name: "MYOB", logo: "/images/logos/real/myob.svg", verified: false },
+  { name: "QuickBooks", logo: "/images/logos/real/quickbooks.png", verified: false },
+  { name: "Visa", logo: "/images/logos/real/visa.svg", verified: false },
+  { name: "Mastercard", logo: "/images/logos/real/mastercard.svg", verified: false },
+  { name: "PayPal", logo: "/images/logos/real/paypal.svg", verified: false },
+  { name: "Stripe", logo: "/images/logos/real/stripe.svg", verified: false },
+  { name: "Wise", logo: "/images/logos/real/wise.svg", verified: false },
 ];
 
 export const banks: Partner[] = [
-  { name: "CommBank", logo: "/images/logos/commbank.svg", verified: false },
-  { name: "NAB", logo: "/images/logos/nab.svg", verified: false },
-  { name: "Westpac", logo: "/images/logos/westpac.svg", verified: false },
-  { name: "ANZ", logo: "/images/logos/anz.svg", verified: false },
-  { name: "Macquarie", logo: "/images/logos/macquarie.svg", verified: false },
-  { name: "Bendigo Bank", logo: "/images/logos/bendigo.svg", verified: false },
-  { name: "St.George", logo: "/images/logos/stgeorge.svg", verified: false },
-  { name: "ING", logo: "/images/logos/ing.svg", verified: false },
+  { name: "CommBank", logo: "/images/logos/real/commbank.png", verified: false },
+  { name: "NAB", logo: "/images/logos/real/nab.jpg", verified: false },
+  { name: "Westpac", logo: "/images/logos/real/westpac.ico", verified: false },
+  { name: "ANZ", logo: "/images/logos/real/anz.png", verified: false },
+  { name: "Macquarie", logo: "/images/logos/real/macquarie.png", verified: false },
+  { name: "ING", logo: "/images/logos/real/ing.jpg", verified: false },
+  { name: "Bendigo Bank", logo: "/images/logos/real/bendigo.ico", verified: false },
+  { name: "St.George", logo: "/images/logos/real/stgeorge.png", verified: false },
 ];

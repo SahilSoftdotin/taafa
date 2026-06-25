@@ -1,19 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import { Container } from "@/components/ui/Aurora";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { platforms, banks, type Partner } from "@/content/partners";
 
 function LogoChip({ p }: { p: Partner }) {
   return (
-    <div className="mx-3 flex h-16 shrink-0 items-center justify-center rounded-2xl border border-ink-700 bg-ink-900/80 px-8 backdrop-blur">
-      <Image
+    <div className="mx-3 flex h-20 w-44 shrink-0 items-center justify-center rounded-2xl border border-ink-700 bg-white px-6 shadow-[0_8px_24px_-18px_rgba(30,41,99,0.5)]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={p.logo}
-        alt={p.name}
-        width={150}
-        height={32}
-        className="h-7 w-auto opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+        alt={`${p.name} logo`}
+        loading="lazy"
+        className="max-h-9 w-auto max-w-[120px] object-contain opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
       />
     </div>
   );
