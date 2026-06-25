@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/content/services";
 
+export const dynamic = "force-static";
+
 const base = "https://www.taafa.com.au";
 
 export default function sitemap(): MetadataRoute.Sitemap {

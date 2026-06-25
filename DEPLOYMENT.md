@@ -1,49 +1,51 @@
 # Deployment — TAAF website
 
-This site is a **Next.js 16 (App Router)** application deployed to **Cloudflare
-Workers** via the **OpenNext** Cloudflare adapter. Git is the source of truth:
-a push to `main` builds and deploys automatically.
+This site is a **Next.js 16 (App Router)** application exported as a **fully
+static site** and served from **Cloudflare** (Workers static assets / global
+CDN). Git is the source of truth: a push to `main` can build and deploy
+automatically via Workers Builds.
 
-## Stack & required config (already in this repo)
+> Why static: every route is statically generated (no SSR, APIs, or server
+> actions), so a static export is lighter, faster and avoids a server runtime.
+> When dynamic features are added later (e.g. a form backend or CMS), revisit
+> the OpenNext → Cloudflare Workers adapter.
+
+## Config in this repo
 
 | File | Purpose |
 |---|---|
-| `wrangler.jsonc` | Worker name, `compatibility_date`, `nodejs_compat`, `main: .open-next/worker.js`, `ASSETS` binding, observability |
-| `open-next.config.ts` | `export default defineCloudflareConfig()` |
-| `next.config.ts` | calls `initOpenNextCloudflareForDev()` (dev-only no-op) |
-| `package.json` | `cf:build`, `cf:preview`, `cf:deploy`, `cf:typegen` scripts |
-| `.gitignore` | ignores `/.open-next/`, `/.wrangler/`, `.dev.vars` |
+| `next.config.ts` | `output: "export"`, `images.unoptimized: true` |
+| `wrangler.jsonc` | Worker name `taafa`, `assets.directory: ./out`, `html_handling: auto-trailing-slash`, `not_found_handling: 404-page`, observability |
+| `package.json` | `cf:build` (`next build`), `cf:preview`, `cf:deploy` |
+| `.gitignore` | ignores `/out/`, `/.wrangler/`, `.dev.vars` |
 
-Dev dependencies: `@opennextjs/cloudflare`, `wrangler`.
+Build output is `out/` (static HTML, assets, `sitemap.xml`, `robots.txt`).
 
 ## First-time deploy (Workers Builds — recommended)
 
 1. Cloudflare dashboard → **Workers & Pages → Create → Workers → Import a repository**.
 2. **Authorize GitHub** and select this repository (least access).
 3. Build settings:
-   - **Build command:** `npx opennextjs-cloudflare build`
+   - **Build command:** `npx next build`
    - **Deploy command:** `npx wrangler deploy`
    - **Root directory:** repo root (`/`)
-4. **Save & Deploy**, then open the generated `…workers.dev` URL and verify:
-   pages render, navigation works, images and logo load, the booking form posts.
+4. **Save & Deploy**, open the generated `…workers.dev` URL and verify pages,
+   navigation, images, logo and the booking form.
 5. Every push to `main` now auto-deploys; pull requests get preview URLs.
 
-## CLI deploy (alternative — build on Linux/macOS/WSL)
+## CLI deploy (alternative)
 
 ```bash
-npx wrangler login      # one-time browser auth
-npm run cf:deploy       # opennextjs-cloudflare build && wrangler deploy
+npx wrangler login      # one-time browser auth (select the correct account)
+npm run cf:deploy       # next build && wrangler deploy
 ```
-
-> **Build on Linux/macOS/WSL.** The OpenNext build is not fully supported on
-> Windows; use Workers Builds (Linux CI) or WSL for production builds.
 
 ## Custom domain
 
-1. Add the domain as a Cloudflare zone (Free plan) and point the registrar's
+1. Add the domain as a Cloudflare zone (Free plan); point the registrar's
    nameservers at Cloudflare; wait for **Active**.
-2. Worker → **Settings → Domains & Routes → Add Custom Domain** → add the apex
-   and `www`. DNS + SSL are provisioned automatically.
+2. Worker → **Settings → Domains & Routes → Add Custom Domain** → apex + `www`.
+   DNS + SSL are provisioned automatically.
 3. Set **SSL/TLS → Full (Strict)** and enable **Always Use HTTPS**.
 
 ## Rollback
@@ -57,7 +59,7 @@ npm run cf:deploy       # opennextjs-cloudflare build && wrangler deploy
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # Next.js production build (verifies the app compiles)
+npm run build    # static export → ./out
 ```
 
 ## Security checklist (per domain, ~5 min)
@@ -69,7 +71,7 @@ npm run build    # Next.js production build (verifies the app compiles)
 
 ## Pre-launch reminders
 
-See `docs/03-ROADMAP.md` for the full checklist. Key items: confirm/replace the
-flagged placeholder stats, offices, sample reviews and photography, and wire the
-consultation form to a backend before going live.
+See `docs/03-ROADMAP.md`. Key items: confirm/replace the flagged placeholder
+stats, offices, sample reviews and photography, and wire the consultation form
+to a backend before going live.
 ```
