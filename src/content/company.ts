@@ -29,6 +29,7 @@ export interface Location {
   name: string;
   address: string;
   mapUrl: string;
+  image?: string;
   primary: boolean;
   verified: boolean;
   note?: string;
@@ -38,27 +39,18 @@ export const locations: Location[] = [
   {
     name: "Toukley",
     address: "Unit 2/28 Canton Beach Road, Toukley NSW 2263",
-    mapUrl: "https://maps.app.goo.gl/pcYnvwqJhwpX52Jm8",
+    mapUrl: "https://maps.app.goo.gl/bNFbunxrTepzdd7n6",
+    image: "/images/locations/toukley.jpg",
     primary: true,
     verified: true,
   },
-  // Placeholders from the brief — NOT on the current live site.
-  // Kept disabled until the client confirms additional offices exist.
   {
     name: "Newcastle",
-    address: "Office address to be confirmed",
-    mapUrl: "#",
+    address: "500 Hunter Street, Newcastle NSW 2300",
+    mapUrl: "https://maps.app.goo.gl/hTyCeguT5SQXseTj8",
+    image: "/images/locations/newcastle.jpg",
     primary: false,
-    verified: false,
-    note: "Placeholder — confirm with client before publishing.",
-  },
-  {
-    name: "Cessnock",
-    address: "Office address to be confirmed",
-    mapUrl: "#",
-    primary: false,
-    verified: false,
-    note: "Placeholder — confirm with client before publishing.",
+    verified: true,
   },
 ];
 
