@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { Container } from "@/components/ui/Aurora";
 import { InteractiveBackground } from "@/components/ui/InteractiveBackground";
+import { RotatingWords } from "@/components/ui/RotatingWords";
 import { img, heroVideo } from "@/content/images";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -11,23 +12,6 @@ import { company, trustMarks } from "@/content/company";
 import { HeroDashboard } from "./HeroDashboard";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-
-const line1 = ["Financial", "confidence."];
-const line2 = ["Built", "for", "the", "future."];
-
-const wordWrap: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
-};
-const word: Variants = {
-  hidden: { opacity: 0, y: "0.5em", filter: "blur(8px)" },
-  show: {
-    opacity: 1,
-    y: "0em",
-    filter: "blur(0px)",
-    transition: { duration: 0.7, ease },
-  },
-};
 
 export function Hero() {
   return (
@@ -76,34 +60,18 @@ export function Hero() {
               {company.accreditation} · Since {company.established}
             </motion.span>
 
-            {/* Big animated headline */}
+            {/* Big animated headline with a rotating word */}
             <motion.h1
-              variants={wordWrap}
-              initial="hidden"
-              animate="show"
-              className="text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.2rem]"
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.1 }}
+              className="text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]"
             >
-              <span className="block">
-                {line1.map((w) => (
-                  <motion.span
-                    key={w}
-                    variants={word}
-                    className="mr-[0.25em] inline-block"
-                  >
-                    {w}
-                  </motion.span>
-                ))}
-              </span>
+              <span className="block">Financial</span>
               <span className="block text-gradient-aurora">
-                {line2.map((w) => (
-                  <motion.span
-                    key={w}
-                    variants={word}
-                    className="mr-[0.25em] inline-block"
-                  >
-                    {w}
-                  </motion.span>
-                ))}
+                <RotatingWords
+                  words={["confidence", "independence", "freedom", "growth"]}
+                />
               </span>
             </motion.h1>
 
