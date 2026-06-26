@@ -68,9 +68,10 @@ export function Hero() {
               className="text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.4rem]"
             >
               <span className="block">Financial</span>
-              <span className="block text-gradient-aurora">
+              <span className="block">
                 <RotatingWords
-                  words={["confidence", "independence", "freedom", "growth"]}
+                  words={["confidence.", "independence.", "freedom.", "growth."]}
+                  className="font-serif italic text-gradient-aurora"
                 />
               </span>
             </motion.h1>

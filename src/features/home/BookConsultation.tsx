@@ -2,7 +2,7 @@ import { Aurora, Container } from "@/components/ui/Aurora";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
-import { ConsultationForm } from "@/components/ConsultationForm";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { company } from "@/content/company";
 
 const perks = [
@@ -63,7 +63,7 @@ export function BookConsultation() {
 
           {/* Form card */}
           <div className="glass rounded-3xl p-6 md:p-8">
-            <ConsultationForm />
+            <EnquiryForm />
           </div>
         </div>
       </Container>

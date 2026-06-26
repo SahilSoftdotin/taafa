@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Aurora";
 import { PageHero } from "@/components/ui/PageHero";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Icon } from "@/components/ui/Icon";
-import { ConsultationForm } from "@/components/ConsultationForm";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { company, locations } from "@/content/company";
 
 export const metadata: Metadata = {
@@ -111,9 +111,9 @@ export default function ContactPage() {
             </a>
           </div>
 
-          {/* Form */}
+          {/* Enquiry form */}
           <GlassCard strong className="p-7 md:p-9">
-            <ConsultationForm />
+            <EnquiryForm />
           </GlassCard>
         </div>
       </Container>
